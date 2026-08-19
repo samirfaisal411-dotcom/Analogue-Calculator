@@ -3,51 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Analogue Calculator</title>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <main class="calculator">
+    <!-- 1. Splash Screen Animation -->
+    <div id="splash-screen">
+        <div class="splash-logo">
+            <div class="logo-grid">
+                <span class="op-sub">−</span>
+                <span class="op-mul">×</span>
+                <span class="op-add">+</span>
+                <span class="op-eq">=</span>
+            </div>
+        </div>
+        <p class="splash-title">Calculator</p>
+    </div>
 
-        <!-- Calculator Display -->
-        <section class="display">
-            <div class="previous-display"></div>
-            <div class="current-display">0</div>
-        </section>
+    <!-- 2. Main App Interface -->
+    <div class="app-container">
+        <!-- Top Navigation Bar -->
+        <div class="top-nav">
+            <button class="nav-btn active" id="calc-tab" onclick="switchTab('calc')">Calculator</button>
+            <button class="nav-btn" id="conv-tab" onclick="switchTab('conv')">Converter</button>
+        </div>
 
-        <!-- Calculator Buttons -->
-        <section class="buttons">
+        <!-- Calculator View -->
+        <div id="calculator-view" class="view active-view">
+            <div class="display">
+                <input type="text" id="screen" readonly placeholder="0">
+            </div>
+            
+            <div class="buttons">
+                <button class="btn btn-orange-text" onclick="clearDisplay()">AC</button>
+                <button class="btn btn-orange-text" onclick="deleteLast()">⌫</button>
+                <button class="btn btn-orange-text" onclick="appendValue('%')">%</button>
+                <button class="btn btn-orange-text" onclick="appendValue('/')">÷</button>
 
-            <button type="button" class="function">AC</button>
-            <button type="button" class="function">DEL</button>
-            <button type="button" class="function">%</button>
-            <button type="button" class="operator">÷</button>
+                <button class="btn" onclick="appendValue('7')">7</button>
+                <button class="btn" onclick="appendValue('8')">8</button>
+                <button class="btn" onclick="appendValue('9')">9</button>
+                <button class="btn btn-orange-text" onclick="appendValue('*')">×</button>
 
-            <button type="button">7</button>
-            <button type="button">8</button>
-            <button type="button">9</button>
-            <button type="button" class="operator">×</button>
+                <button class="btn" onclick="appendValue('4')">4</button>
+                <button class="btn" onclick="appendValue('5')">5</button>
+                <button class="btn" onclick="appendValue('6')">6</button>
+                <button class="btn btn-orange-text" onclick="appendValue('-')">−</button>
 
-            <button type="button">4</button>
-            <button type="button">5</button>
-            <button type="button">6</button>
-            <button type="button" class="operator">−</button>
+                <button class="btn" onclick="appendValue('1')">1</button>
+                <button class="btn" onclick="appendValue('2')">2</button>
+                <button class="btn" onclick="appendValue('3')">3</button>
+                <button class="btn btn-orange-text" onclick="appendValue('+')">+</button>
 
-            <button type="button">1</button>
-            <button type="button">2</button>
-            <button type="button">3</button>
-            <button type="button" class="operator">+</button>
+                <button class="btn btn-orange-text" onclick="clearDisplay()">⤢</button>
+                <button class="btn" onclick="appendValue('0')">0</button>
+                <button class="btn" onclick="appendValue('.')">.</button>
+                <button class="btn btn-equal" onclick="calculate()">=</button>
+            </div>
+        </div>
 
-            <button type="button" class="zero">0</button>
-            <button type="button">.</button>
-            <button type="button" class="equals">=</button>
+        <!-- Converter View -->
+        <div id="converter-view" class="view">
+            <div class="converter-grid">
+                <div class="conv-card"><span>$</span><p>Currency</p></div>
+                <div class="conv-card"><span>📏</span><p>Length</p></div>
+                <div class="conv-card"><span>⚖️</span><p>Mass</p></div>
+                <div class="conv-card"><span>🔲</span><p>Area</p></div>
+                <div class="conv-card"><span>🕒</span><p>Time</p></div>
+                <div class="conv-card"><span>💾</span><p>Data</p></div>
+                <div class="conv-card"><span>🏷️</span><p>Discount</p></div>
+                <div class="conv-card"><span>📦</span><p>Volume</p></div>
+                <div class="conv-card"><span>01</span><p>Numeral system</p></div>
+                <div class="conv-card"><span>⏲️</span><p>Speed</p></div>
+                <div class="conv-card"><span>🌡️</span><p>Temperature</p></div>
+                <div class="conv-card"><span>⚖️</span><p>BMI</p></div>
+                <div class="conv-card"><span>🧾</span><p>GST</p></div>
+            </div>
+        </div>
+    </div>
 
-        </section>
-
-    </main>
-
-      <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
