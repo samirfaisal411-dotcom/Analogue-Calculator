@@ -181,3 +181,246 @@ body {
     font-size: 0.85rem;
     color: #333;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Splash Screen */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeOut 0.5s ease 1.8s forwards;
+}
+
+.logo-grid {
+    width: 90px;
+    height: 90px;
+    background: #000;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    gap: 5px;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    align-items: center;
+    justify-items: center;
+}
+
+.op-eq {
+    background-color: #0052cc;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.splash-title {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #333;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* App Main Container */
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: relative;
+}
+
+.top-nav {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.nav-btn {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #888;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.nav-btn.active {
+    color: #000;
+    font-weight: bold;
+}
+
+.view {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.active-view {
+    display: flex;
+}
+
+/* Screen & Calculator */
+.display input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 3.5rem;
+    text-align: right;
+    color: #000;
+    outline: none;
+    margin-bottom: 20px;
+    border-right: 3px solid #ff6b00;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    height: 65px;
+    border: none;
+    border-radius: 18px;
+    background: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    cursor: pointer;
+}
+
+.btn:active {
+    background: #e0e0e0;
+}
+
+.btn-orange-text { color: #ff6b00; }
+.btn-equal { background: #ff6b00; color: #fff; }
+
+/* Converter Cards */
+.converter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 10px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.conv-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.conv-card:active {
+    background: #eaeaea;
+}
+
+.conv-card span { font-size: 1.8rem; }
+.conv-card p { font-size: 0.85rem; color: #333; }
+
+/* Modal Screen Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 100;
+    padding: 20px;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.back-btn {
+    border: none;
+    background: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.input-group input, .input-group select {
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.result-box {
+    background: #f0f4ff;
+    padding: 18px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #0052cc;
+    text-align: center;
+}
+
