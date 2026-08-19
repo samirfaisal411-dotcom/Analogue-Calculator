@@ -1,374 +1,183 @@
-/* =========================================
-   ANALOGUE CALCULATOR
-   Main Stylesheet
-   ========================================= */
-
-/* ---------- Reset ---------- */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-
-/* ---------- Page ---------- */
-
-html {
-    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-    min-height: 100vh;
+    background-color: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-
-    background:
-        radial-gradient(
-            circle at top,
-            #3a3a3a 0%,
-            #181818 45%,
-            #080808 100%
-        );
-
-    color: #ffffff;
-}
-
-
-/* ---------- Calculator ---------- */
-
-.calculator {
-    width: 100%;
-    max-width: 390px;
-
-    padding: 18px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #292929,
-            #111111
-        );
-
-    border: 1px solid #3d3d3d;
-    border-radius: 28px;
-
-    box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.65),
-        inset 0 1px 1px rgba(255, 255, 255, 0.08);
-
+    min-height: 100vh;
     overflow: hidden;
 }
 
-
-/* ---------- Display ---------- */
-
-.display {
+/* Splash Screen Animation */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    min-height: 125px;
-
-    margin-bottom: 18px;
-    padding: 20px;
-
+    height: 100%;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-end;
-
-    background:
-        linear-gradient(
-            145deg,
-            #111111,
-            #050505
-        );
-
-    border: 1px solid #333333;
-    border-radius: 18px;
-
-    box-shadow:
-        inset 0 4px 10px rgba(0, 0, 0, 0.65),
-        inset 0 -1px 1px rgba(255, 255, 255, 0.03);
-
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeOut 0.5s ease 2s forwards;
 }
 
+.logo-grid {
+    width: 100px;
+    height: 100px;
+    background: #000;
+    border-radius: 24px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px;
+    gap: 5px;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    align-items: center;
+    justify-items: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
 
-/* Previous calculation */
-
-.previous-display {
+.op-eq {
+    background-color: #0052cc;
     width: 100%;
-    min-height: 28px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
 
-    margin-bottom: 5px;
+.splash-title {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: #333;
+}
 
-    color: #8c8c8c;
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 
-    font-size: 0.95rem;
+/* Main Layout */
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.top-nav {
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.nav-btn {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #888;
     font-weight: 500;
-
-    text-align: right;
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    cursor: pointer;
 }
 
+.nav-btn.active {
+    color: #000;
+    font-weight: bold;
+}
 
-/* Current number */
+.view {
+    display: none;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+}
 
-.current-display {
+.active-view {
+    display: flex;
+}
+
+/* Calculator Screen */
+.display input {
     width: 100%;
-
-    color: #ffffff;
-
-    font-size: clamp(2.2rem, 9vw, 3.5rem);
-    font-weight: 600;
-
-    line-height: 1.1;
-
+    border: none;
+    background: transparent;
+    font-size: 3.5rem;
     text-align: right;
-
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    color: #000;
+    outline: none;
+    margin-bottom: 30px;
+    border-right: 3px solid #ff6b00;
 }
 
-
-/* ---------- Buttons Area ---------- */
-
+/* Calculator Buttons */
 .buttons {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap: 11px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
-
-/* ---------- All Buttons ---------- */
-
-button {
-    min-height: 68px;
-
+.btn {
+    height: 70px;
     border: none;
-    border-radius: 18px;
-
-    outline: none;
-
-    background:
-        linear-gradient(
-            145deg,
-            #353535,
-            #202020
-        );
-
-    color: #ffffff;
-
-    font-family: inherit;
-    font-size: 1.35rem;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 5px 0 #101010,
-        0 8px 14px rgba(0, 0, 0, 0.25),
-        inset 0 1px 1px rgba(255, 255, 255, 0.08);
-
-    transition:
-        transform 0.08s ease,
-        box-shadow 0.08s ease,
-        background 0.15s ease;
+    border-radius: 20px;
+    background: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
-
-/* ---------- Button Hover ---------- */
-
-button:hover {
-    background:
-        linear-gradient(
-            145deg,
-            #414141,
-            #282828
-        );
+.btn:active {
+    background: #e0e0e0;
 }
 
-
-/* ---------- Button Press ---------- */
-
-button:active {
-    transform: translateY(4px);
-
-    box-shadow:
-        0 1px 0 #101010,
-        0 3px 7px rgba(0, 0, 0, 0.25),
-        inset 0 1px 1px rgba(255, 255, 255, 0.05);
+.btn-orange-text {
+    color: #ff6b00;
 }
 
-
-/* ---------- Function Buttons ---------- */
-
-button.function {
-    background:
-        linear-gradient(
-            145deg,
-            #555555,
-            #363636
-        );
-
-    color: #f1f1f1;
+.btn-equal {
+    background: #ff6b00;
+    color: #fff;
 }
 
-
-button.function:hover {
-    background:
-        linear-gradient(
-            145deg,
-            #626262,
-            #404040
-        );
+/* Converter View Grid */
+.converter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px 10px;
+    padding-top: 30px;
+    text-align: center;
 }
 
-
-/* ---------- Operator Buttons ---------- */
-
-button.operator {
-    background:
-        linear-gradient(
-            145deg,
-            #b66a24,
-            #713b12
-        );
-
-    color: #ffffff;
-
-    box-shadow:
-        0 5px 0 #47250b,
-        0 8px 14px rgba(0, 0, 0, 0.25),
-        inset 0 1px 1px rgba(255, 255, 255, 0.12);
+.conv-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
 }
 
-
-button.operator:hover {
-    background:
-        linear-gradient(
-            145deg,
-            #c7792c,
-            #804719
-        );
+.conv-card span {
+    font-size: 1.8rem;
 }
 
-
-/* ---------- Equals Button ---------- */
-
-button.equals {
-    background:
-        linear-gradient(
-            145deg,
-            #e0e0e0,
-            #a9a9a9
-        );
-
-    color: #111111;
-
-    box-shadow:
-        0 5px 0 #737373,
-        0 8px 14px rgba(0, 0, 0, 0.25),
-        inset 0 1px 1px rgba(255, 255, 255, 0.7);
-}
-
-
-button.equals:hover {
-    background:
-        linear-gradient(
-            145deg,
-            #eeeeee,
-            #bdbdbd
-        );
-}
-
-
-/* ---------- Zero Button ---------- */
-
-button.zero {
-    grid-column: span 2;
-}
-
-
-/* ---------- Focus Accessibility ---------- */
-
-button:focus-visible {
-    outline: 3px solid #ffffff;
-    outline-offset: 3px;
-}
-
-
-/* ---------- Small Phones ---------- */
-
-@media (max-width: 360px) {
-
-    body {
-        padding: 12px;
-    }
-
-    .calculator {
-        padding: 14px;
-        border-radius: 22px;
-    }
-
-    .display {
-        min-height: 110px;
-        padding: 16px;
-        border-radius: 15px;
-    }
-
-    .buttons {
-        gap: 8px;
-    }
-
-    button {
-        min-height: 58px;
-        border-radius: 15px;
-        font-size: 1.15rem;
-    }
-
-    .current-display {
-        font-size: 2.2rem;
-    }
-}
-
-
-/* ---------- Larger Screens ---------- */
-
-@media (min-width: 600px) {
-
-    .calculator {
-        max-width: 410px;
-        padding: 20px;
-    }
-
-    button {
-        min-height: 72px;
-    }
-}
-
-
-/* ---------- Reduced Motion ---------- */
-
-@media (prefers-reduced-motion: reduce) {
-
-    button {
-        transition: none;
-    }
+.conv-card p {
+    font-size: 0.85rem;
+    color: #333;
 }
