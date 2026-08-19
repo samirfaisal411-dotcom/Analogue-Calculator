@@ -3,50 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Analogue Calculator</title>
 </head>
 
 <body>
 
-    <h1>Analogue Calculator</h1>
+    <main class="calculator">
 
-    <div>
-        <input type="text" id="display" readonly>
-    </div>
+        <!-- Calculator Display -->
+        <section class="display">
+            <div class="previous-display"></div>
+            <div class="current-display">0</div>
+        </section>
 
-    <div>
-        <button>AC</button>
-        <button>DEL</button>
-        <button>%</button>
-        <button>÷</button>
-    </div>
+        <!-- Calculator Buttons -->
+        <section class="buttons">
 
-    <div>
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>×</button>
-    </div>
+            <button type="button" class="function">AC</button>
+            <button type="button" class="function">DEL</button>
+            <button type="button" class="function">%</button>
+            <button type="button" class="operator">÷</button>
 
-    <div>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>−</button>
-    </div>
+            <button type="button">7</button>
+            <button type="button">8</button>
+            <button type="button">9</button>
+            <button type="button" class="operator">×</button>
 
-    <div>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>+</button>
-    </div>
+            <button type="button">4</button>
+            <button type="button">5</button>
+            <button type="button">6</button>
+            <button type="button" class="operator">−</button>
 
-    <div>
-        <button>0</button>
-        <button>.</button>
-        <button>=</button>
-    </div>
+            <button type="button">1</button>
+            <button type="button">2</button>
+            <button type="button">3</button>
+            <button type="button" class="operator">+</button>
+
+            <button type="button" class="zero">0</button>
+            <button type="button">.</button>
+            <button type="button" class="equals">=</button>
+
+        </section>
+
+    </main>
 
 </body>
 </html>
