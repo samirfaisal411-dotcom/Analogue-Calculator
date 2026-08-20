@@ -1,4 +1,3 @@
-
 /* =========================================================
    ANALOGUE CALCULATOR
    Main JavaScript
