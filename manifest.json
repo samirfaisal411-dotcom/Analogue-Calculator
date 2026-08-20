@@ -1,15 +1,25 @@
 {
   "name": "Analogue Calculator",
-  "short_name": "Calculator",
-  "start_url": "./index.html",
+  "short_name": "Analogue Calculator",
+  "description": "A simple and powerful calculator and converter.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff6b00",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/564/564429.png",
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
