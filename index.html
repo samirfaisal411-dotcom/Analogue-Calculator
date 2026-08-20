@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="manifest" href="manifest.json">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>
+    <title>Calculator & Converter</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
 
@@ -22,7 +22,7 @@
         <p class="splash-title">Calculator</p>
     </div>
 
-    <!-- 2. Main App Interface -->
+    <!-- 2. Main App Container -->
     <div class="app-container">
         <!-- Top Navigation Bar -->
         <div class="top-nav">
@@ -64,40 +64,37 @@
             </div>
         </div>
 
-        <!-- Converter View -->
+        <!-- Converter View (All 13 Features) -->
         <div id="converter-view" class="view">
             <div class="converter-grid">
-                <div class="conv-card"><span>$</span><p>Currency</p></div>
-                <div class="conv-card"><span>📏</span><p>Length</p></div>
-                <div class="conv-card"><span>⚖️</span><p>Mass</p></div>
-                <div class="conv-card"><span>🔲</span><p>Area</p></div>
-                <div class="conv-card"><span>🕒</span><p>Time</p></div>
-                <div class="conv-card"><span>💾</span><p>Data</p></div>
-                <div class="conv-card"><span>🏷️</span><p>Discount</p></div>
-                <div class="conv-card"><span>📦</span><p>Volume</p></div>
-                <div class="conv-card"><span>01</span><p>Numeral system</p></div>
-                <div class="conv-card"><span>⏲️</span><p>Speed</p></div>
-                <div class="conv-card"><span>🌡️</span><p>Temperature</p></div>
-                <div class="conv-card"><span>⚖️</span><p>BMI</p></div>
-                <div class="conv-card"><span>🧾</span><p>GST</p></div>
-     
-<div class="converter-grid">
-    <div class="conv-card" onclick="openConverter('Currency')"><span>$</span><p>Currency</p></div>
-    <div class="conv-card" onclick="openConverter('Length')"><span>📏</span><p>Length</p></div>
-    <div class="conv-card" onclick="openConverter('Mass')"><span>⚖️</span><p>Mass</p></div>
-    <div class="conv-card" onclick="openConverter('Area')"><span>🔲</span><p>Area</p></div>
-    <div class="conv-card" onclick="openConverter('Time')"><span>🕒</span><p>Time</p></div>
-    <div class="conv-card" onclick="openConverter('Data')"><span>💾</span><p>Data</p></div>
-    <div class="conv-card" onclick="openConverter('Discount')"><span>🏷️</span><p>Discount</p></div>
-    <div class="conv-card" onclick="openConverter('Volume')"><span>📦</span><p>Volume</p></div>
-    <div class="conv-card" onclick="openConverter('Numeral')"><span>01</span><p>Numeral system</p></div>
-    <div class="conv-card" onclick="openConverter('Speed')"><span>⏲️</span><p>Speed</p></div>
-    <div class="conv-card" onclick="openConverter('Temperature')"><span>🌡️</span><p>Temperature</p></div>
-    <div class="conv-card" onclick="openConverter('BMI')"><span>🧍</span><p>BMI</p></div>
-    <div class="conv-card" onclick="openConverter('GST')"><span>🧾</span><p>GST</p></div>
-</div>
+                <div class="conv-card" onclick="openConverter('Currency')"><span>$</span><p>Currency</p></div>
+                <div class="conv-card" onclick="openConverter('Length')"><span>📏</span><p>Length</p></div>
+                <div class="conv-card" onclick="openConverter('Mass')"><span>⚖️</span><p>Mass</p></div>
+                <div class="conv-card" onclick="openConverter('Area')"><span>🔲</span><p>Area</p></div>
+                <div class="conv-card" onclick="openConverter('Time')"><span>🕒</span><p>Time</p></div>
+                <div class="conv-card" onclick="openConverter('Data')"><span>💾</span><p>Data</p></div>
+                <div class="conv-card" onclick="openConverter('Discount')"><span>🏷️</span><p>Discount</p></div>
+                <div class="conv-card" onclick="openConverter('Volume')"><span>📦</span><p>Volume</p></div>
+                <div class="conv-card" onclick="openConverter('Numeral')"><span>01</span><p>Numeral system</p></div>
+                <div class="conv-card" onclick="openConverter('Speed')"><span>⏲️</span><p>Speed</p></div>
+                <div class="conv-card" onclick="openConverter('Temperature')"><span>🌡️</span><p>Temperature</p></div>
+                <div class="conv-card" onclick="openConverter('BMI')"><span>🧍</span><p>BMI</p></div>
+                <div class="conv-card" onclick="openConverter('GST')"><span>🧾</span><p>GST</p></div>
+            </div>
+        </div>
+    </div>
 
-       </div>
+    <!-- Universal Converter Modal Screen -->
+    <div id="converter-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="back-btn" onclick="closeConverter()">←</button>
+                <h3 id="modal-title">Converter</h3>
+            </div>
+            
+            <div id="modal-body" class="modal-body">
+                <!-- Dynamic inputs will load here via JavaScript -->
+            </div>
         </div>
     </div>
 
