@@ -2,150 +2,128 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #f7f7f7;
+    background-color: #f8f9fa;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
 }
 
-/* Splash Screen Animation */
+/* App Container */
+.app-container {
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Splash Screen */
 #splash-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 999;
-    animation: fadeOut 0.5s ease 2s forwards;
+    z-index: 1000;
+    animation: fadeOut 0.5s ease 1.5s forwards;
 }
 
 .logo-grid {
-    width: 100px;
-    height: 100px;
-    background: #000;
-    border-radius: 24px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 10px;
-    gap: 5px;
-    color: #fff;
-    font-size: 1.5rem;
+    gap: 10px;
+    font-size: 28px;
     font-weight: bold;
-    align-items: center;
-    justify-items: center;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.op-eq {
-    background-color: #0052cc;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
+    color: #ff6b00;
+    margin-bottom: 15px;
 }
 
 .splash-title {
-    margin-top: 20px;
-    font-size: 1.1rem;
+    font-size: 20px;
+    font-weight: 600;
     color: #333;
 }
 
 @keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
+    to { opacity: 0; visibility: hidden; }
 }
 
-/* Main Layout */
-.app-container {
-    width: 100%;
-    max-width: 400px;
-    height: 100vh;
-    background: #f7f7f7;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
+/* Top Navigation */
 .top-nav {
     display: flex;
-    gap: 20px;
+    border-bottom: 1px solid #eee;
     padding: 10px 0;
 }
 
 .nav-btn {
+    flex: 1;
     border: none;
     background: none;
-    font-size: 1.2rem;
+    font-size: 18px;
+    padding: 10px;
     color: #888;
-    font-weight: 500;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .nav-btn.active {
     color: #000;
-    font-weight: bold;
+    border-bottom: 3px solid #000;
 }
 
+/* Views */
 .view {
     display: none;
+    flex: 1;
     flex-direction: column;
-    height: 100%;
-    justify-content: flex-end;
 }
 
 .active-view {
     display: flex;
 }
 
-/* Calculator Screen */
+/* Calculator Style */
+.display {
+    padding: 30px 20px;
+    text-align: right;
+}
+
 .display input {
     width: 100%;
     border: none;
-    background: transparent;
-    font-size: 3.5rem;
-    text-align: right;
-    color: #000;
     outline: none;
-    margin-bottom: 30px;
-    border-right: 3px solid #ff6b00;
+    font-size: 48px;
+    text-align: right;
+    background: transparent;
 }
 
-/* Calculator Buttons */
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 12px;
+    padding: 20px;
+    margin-top: auto;
 }
 
 .btn {
-    height: 70px;
+    height: 65px;
+    border-radius: 50%;
     border: none;
-    border-radius: 20px;
-    background: #ffffff;
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: #000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-}
-
-.btn:active {
-    background: #e0e0e0;
+    background: #f1f3f5;
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .btn-orange-text {
@@ -157,212 +135,36 @@ body {
     color: #fff;
 }
 
-/* Converter View Grid */
+/* Converter Style */
 .converter-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px 10px;
-    padding-top: 30px;
-    text-align: center;
+    gap: 20px;
+    padding: 20px;
+    overflow-y: auto;
 }
 
 .conv-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    padding: 15px 5px;
+    cursor: pointer;
 }
 
 .conv-card span {
-    font-size: 1.8rem;
+    font-size: 30px;
+    margin-bottom: 8px;
 }
 
 .conv-card p {
-    font-size: 0.85rem;
-    color: #333;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-body {
-    background-color: #f7f7f7;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-}
-
-/* Splash Screen */
-#splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    animation: fadeOut 0.5s ease 1.8s forwards;
-}
-
-.logo-grid {
-    width: 90px;
-    height: 90px;
-    background: #000;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px;
-    gap: 5px;
-    color: #fff;
-    font-size: 1.4rem;
-    font-weight: bold;
-    align-items: center;
-    justify-items: center;
-}
-
-.op-eq {
-    background-color: #0052cc;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-}
-
-.splash-title {
-    margin-top: 15px;
-    font-size: 1rem;
-    color: #333;
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-/* App Main Container */
-.app-container {
-    width: 100%;
-    max-width: 400px;
-    height: 100vh;
-    background: #f7f7f7;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    position: relative;
-}
-
-.top-nav {
-    display: flex;
-    gap: 20px;
-    padding: 10px 0;
-}
-
-.nav-btn {
-    border: none;
-    background: none;
-    font-size: 1.2rem;
-    color: #888;
-    font-weight: 500;
-    cursor: pointer;
-}
-
-.nav-btn.active {
-    color: #000;
-    font-weight: bold;
-}
-
-.view {
-    display: none;
-    flex-direction: column;
-    height: 100%;
-    justify-content: flex-end;
-}
-
-.active-view {
-    display: flex;
-}
-
-/* Screen & Calculator */
-.display input {
-    width: 100%;
-    border: none;
-    background: transparent;
-    font-size: 3.5rem;
-    text-align: right;
-    color: #000;
-    outline: none;
-    margin-bottom: 20px;
-    border-right: 3px solid #ff6b00;
-}
-
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.btn {
-    height: 65px;
-    border: none;
-    border-radius: 18px;
-    background: #ffffff;
-    font-size: 1.4rem;
-    font-weight: 500;
-    color: #000;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    cursor: pointer;
-}
-
-.btn:active {
-    background: #e0e0e0;
-}
-
-.btn-orange-text { color: #ff6b00; }
-.btn-equal { background: #ff6b00; color: #fff; }
-
-/* Converter Cards */
-.converter-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px 10px;
-    padding-top: 20px;
+    font-size: 12px;
+    color: #555;
     text-align: center;
 }
 
-.conv-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 12px;
-    transition: background 0.2s;
-}
-
-.conv-card:active {
-    background: #eaeaea;
-}
-
-.conv-card span { font-size: 1.8rem; }
-.conv-card p { font-size: 0.85rem; color: #333; }
-
-/* Modal Screen Styling */
+/* Modal Popup */
 .modal {
     display: none;
     position: fixed;
@@ -370,57 +172,59 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #fff;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 100;
+}
+
+.modal-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    border-radius: 20px 20px 0 0;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .modal-header {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .back-btn {
     border: none;
     background: none;
-    font-size: 1.8rem;
+    font-size: 24px;
     cursor: pointer;
 }
 
-.modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
 .input-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    margin-bottom: 15px;
 }
 
 .input-group label {
-    font-size: 0.9rem;
+    display: block;
+    font-size: 13px;
     color: #666;
+    margin-bottom: 5px;
 }
 
-.input-group input, .input-group select {
-    padding: 14px;
+.input-group input {
+    width: 100%;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 12px;
-    font-size: 1.1rem;
-    outline: none;
+    border-radius: 8px;
+    font-size: 16px;
 }
 
 .result-box {
-    background: #f0f4ff;
-    padding: 18px;
-    border-radius: 12px;
-    font-size: 1.2rem;
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
     font-weight: bold;
-    color: #0052cc;
+    color: #ff6b00;
     text-align: center;
 }
-
